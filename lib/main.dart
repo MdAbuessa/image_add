@@ -16,6 +16,7 @@ class CameraImageList extends StatefulWidget {
 
 class _CameraImageListState extends State<CameraImageList> {
   List<File> _imageList = []; // List to hold image files
+
   final ImagePicker _picker = ImagePicker();
 
   Future<void> _getImageFromCamera() async {
@@ -73,3 +74,90 @@ class _CameraImageListState extends State<CameraImageList> {
     );
   }
 }
+
+
+
+////...................One image show start.............
+
+
+// void main() {
+//   runApp(const MaterialApp(home: CameraImageList()));
+// }
+
+// class CameraImageList extends StatefulWidget {
+//   const CameraImageList({super.key});
+//   @override
+//   State<CameraImageList> createState() => _CameraImageListState();
+// }
+
+// class _CameraImageListState extends State<CameraImageList> {
+//   File? _image; // List to hold image files
+//   final ImagePicker _picker = ImagePicker();
+
+//   Future<void> _getImageFromCamera() async {
+//     final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+//     if (image != null) {
+//       setState(() {
+//         _image = File(image.path);
+//       });
+//     }
+//   }
+
+//   Future<void> _getImageFromGallery() async {
+//     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+//     if (image != null) {
+//       setState(() {
+//         _image = File(image.path);
+//       });
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Camera & Gallery Image List'),
+//       ),
+//       body: Column(
+//         children: <Widget>[
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//             children: [
+//               ElevatedButton(
+//                 onPressed: _getImageFromCamera,
+//                 child: const Text('Take a Picture'),
+//               ),
+//               ElevatedButton(
+//                 onPressed: _getImageFromGallery,
+//                 child: const Text('Pick from Gallery'),
+//               ),
+//             ],
+//           ),
+//           Expanded(
+//             child: Center(
+//               child: Container(
+//                 margin: const EdgeInsets.all(8.0),
+//                 width: 150,
+//                 height: 150,
+//                 decoration: BoxDecoration(
+//                   shape: BoxShape.circle,
+//                   border: Border.all(
+//                     color: Colors.amberAccent,
+//                     width: 2,
+//                   ),
+//                   image: _image != null
+//                       ? DecorationImage(
+//                           image: FileImage(_image!),
+//                           fit: BoxFit.cover,
+//                         )
+//                       : null,
+//                 ),
+//               ),
+//             ),
+//           )
+//         ],
+//       ),
+//     );
+//   }
+// }
+//.....................one image show end...............
